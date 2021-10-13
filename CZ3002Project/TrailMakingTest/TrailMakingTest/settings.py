@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'TrailMakingTest.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'TMT_DB',
+        'USER': 'postgres',
+        'PASSWORD':'~!H9GuWG',
+        'HOST': 'database-1.c4laisiggmfb.ap-southeast-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
