@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TmtBConfig(AppConfig):
+class TmtConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'TMT_B'
+    name = 'TMT'
