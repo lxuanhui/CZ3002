@@ -8,8 +8,7 @@ from django.contrib.auth import authenticate,login,logout
 from .forms import CreatUserForm
 # Takes a request and returns a response (request handler)
 
-def home(request):
-    return render(request, 'home.html')
+
 
 def LoginPage(request):
     if request.method == 'POST':
@@ -20,10 +19,17 @@ def LoginPage(request):
 
         if user is not None:
             login(request,user)
-            return redirect('TMT_A')
+            return redirect('Home')
+        else:
+            messages.info(request, "Username or password is incorrect")
+            
 
     context = {}
     return render(request, 'login.html', context)
+
+def logoutUser(request):
+    login(request)
+    return redirect(request, "login")
 
 def RegisterPage(request):
     form = CreatUserForm()
