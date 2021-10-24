@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 from .forms import CreatUserForm
@@ -28,16 +29,19 @@ def LoginPage(request):
     return render(request, 'login.html', context)
 
 def logoutUser(request):
-    login(request)
-    return redirect(request, "login")
+    logout(request)
+    return redirect('login')
 
 def RegisterPage(request):
-    form = CreatUserForm()
-    if request.method == "POST":
-        form = CreatUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Account successfully created for '+ form.cleaned_data.get('username'))
-            return redirect('login')
-    context = {'form':form}
-    return render(request,'register.html', context)
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        form = CreatUserForm()
+        if request.method == "POST":
+            form = CreatUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Account successfully created for '+ form.cleaned_data.get('username'))
+                return redirect('login')
+        context = {'form':form}
+        return render(request,'register.html', context)

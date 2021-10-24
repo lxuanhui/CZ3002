@@ -1,35 +1,52 @@
 {% extends 'main.html' %}
+{% load static %}
 
 {% block content %}
+
+<style>
+  .card-img-top {
+    width: 50%;
+    height: 15vw;
+    
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+</style>
+<head> <title> Home </title></head>
 
 <div class="card-deck">
     
     
     <div class="card text-center">
-      <img class="card-img-top" src="static\letters.png" alt="Card image cap">
+      <img class="card-img-top " src="{% static 'images/letters.png' %}" alt="Card image cap" 
+      
+      />
       
       <div class="card-body">
         <h5 class="card-title">TMT A</h5>
         <p class="card-text">Trail Making Test with numbers only.</p>
-        <a href="#" class="btn btn-primary">Continue</a>
+        <a href="{% url 'TMT_A' %}"" class="btn btn-primary">Continue</a>
       </div>
     </div>
     <div class="card text-center">
-      <img class="card-img-top" src="static\numbers.png" alt="Card image cap">
+      <img class="card-img-top" src="{% static 'images/numbers.png' %}" alt="Card image cap"
+      />
       
       <div class="card-body">
         <h5 class="card-title">TMT B</h5>
         <p class="card-text">Trail Making Test with both numbers and letters.</p>
-        <a href="#" class="btn btn-primary">Continue</a>
+        <a href="{% url 'TMT_B' %}" class="btn btn-primary">Continue</a>
       </div>
     </div>
     <div class="card text-center">
-      <img class="card-img-top" src="static\statistics.png" alt="Card image cap">
+      <img class="card-img-top" src="{% static 'images/statistics.png' %}" alt="Card image cap"
+      />
       
       <div class="card-body">
         <h5 class="card-title">Statistics</h5>
         <p class="card-text">Display user analytics and historical performance.</p>
-        <a href="#" class="btn btn-primary">Continue</a>
+        <a href="{% url 'statistics' %}" class="btn btn-primary">Continue</a>
       </div>
     </div>
   </div>
