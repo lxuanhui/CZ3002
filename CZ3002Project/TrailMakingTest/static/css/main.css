@@ -1,7 +1,7 @@
-.container
+#MainBlock
 {
     height: 100vh;
-    background-color: red;
+    background-color: rgb(255, 255, 255);
 }
 
 .card-img-top {
@@ -15,6 +15,15 @@
 
 #hello-msg{
     font-size: 18px;
-    color: #98f51f;
-    margin-right: 20px;
+    color: #000000;
+    float: right;
   }
+
+#cardDeck{
+    height: 50vh;
+    display: flex;
+    border-style: none;
+    align-items: center;
+}
+
+
