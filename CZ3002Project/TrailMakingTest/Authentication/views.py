@@ -4,14 +4,18 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
-# Create your views here.
 
+from Authentication.models import Profile
+# Create your views here.
+from .decorators import AllowedUsers, UnauthenticatedUser
 from .forms import CreatUserForm
+from django.contrib.auth.models import Group
 # Takes a request and returns a response (request handler)
 
 
-
+@UnauthenticatedUser
 def LoginPage(request):
+    
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -32,16 +36,22 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
+
+@UnauthenticatedUser
 def RegisterPage(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
-        form = CreatUserForm()
-        if request.method == "POST":
-            form = CreatUserForm(request.POST)
-            if form.is_valid():
-                form.save()
-                messages.success(request, 'Account successfully created for '+ form.cleaned_data.get('username'))
-                return redirect('login')
-        context = {'form':form}
-        return render(request,'register.html', context)
+    
+    form = CreatUserForm()
+    if request.method == "POST":
+        form = CreatUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
+            group = Group.objects.get(name = 'Profile')
+            user.groups.add(group)
+            Profile.objects.create(
+                user=user,
+            )
+            messages.success(request, 'Account successfully created for ', username)
+            return redirect('login')
+    context = {'form':form}
+    return render(request,'register.html', context)

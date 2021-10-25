@@ -16,7 +16,7 @@
 #hello-msg{
     font-size: 18px;
     color: #000000;
-    float: right;
+    margin-right: 20px;
   }
 
 #cardDeck{
