@@ -1,0 +1,27 @@
+.tmtbutton {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 30px;
+	color: #eee;
+	cursor: pointer;
+	border: 2px solid #eee;
+	transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    transition: opacity 0.6s;
+    background-color: #333;
+    animation: '';
+}
+
+.buttongrid {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    grid-template-rows: repeat(5, auto);
+    justify-items: center;
+    grid-gap: 70px;
+}
+
+@keyframes incorrect {
+    0% { background-color: red;}
+    30% { background-color: red;}
+    100% { background-color: #333;}
+}
