@@ -21,18 +21,18 @@
             var errors = JSON.parse(localStorage.getItem("errors"));
             var timeTotal = 0;
 
-            const labels = [
-                'Circle 2', 'Circle 3', 'Circle 4',
-                'Circle 5', 'Circle 6', 'Circle 7',
-                'Circle 8', 'Circle 9', 'Circle 10',
-                'Circle 11', 'Circle 12', 'Circle 13',
-                'Circle 14', 'Circle 15',
-            ];
+            console.log(timeResults.length)
+            var xaxislabel = [];
+            for(var i=0; i<timeResults.length-1; i++) {
+                xaxislabel.push("Circle "+(i+2))
+            }
+
+            const labels = xaxislabel;
 
             const data = {
                 labels: labels,
                 datasets: [{
-                    label: 'TMT-A Time to click next circle (ms)',
+                    label: 'TMT Time to click next circle (ms)',
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
                     data: timeResults,
