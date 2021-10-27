@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save, pre_save
-from django.dispatch import receiver
+
 # Create your models here.
 
 class Profile(models.Model):
@@ -14,18 +13,14 @@ class Profile(models.Model):
     def __str__(self):
         return self.name
 
-# @receiver(post_save, sender=User)
-# def CreateProfile(sender, instance,created,**kwargs):
-#     if created:
-#         Profile.objects.create(user = instance)
-#         print('Profile Created')
+class Attempts(models.Model):
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    dateTime = models.DateTimeField(auto_now_add=True, blank=True)
+    timeToComplete = models.FloatField(null=True)
+    numOfErrors = models.IntegerField(null=True)
+    errorPerSec = models.FloatField(null=True)
+    errorPencentage = models.FloatField(null=True)
 
-# post_save.connect(CreateProfile, sender=User)
 
-# @receiver(post_save, sender=User)
-# def UpdateProfile(sender, instance,created,**kwargs):
-#     if created == False:
-#         instance.profile.save()
-#         print("Profile updated")
 
-# post_save.connect(UpdateProfile, sender=User)
+

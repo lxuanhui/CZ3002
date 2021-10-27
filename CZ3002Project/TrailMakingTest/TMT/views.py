@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from Authentication.decorators import AllowedUsers
 # Create your views here.
 
 @login_required(login_url = 'login')
