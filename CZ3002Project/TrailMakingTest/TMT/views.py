@@ -9,11 +9,11 @@ def home(request):
     return render(request, 'home.html')
 
 @login_required(login_url = 'login')
-def TMT_A(request):
+def TMTA(request):
     return render(request, 'TMTA.html')
 
 @login_required(login_url = 'login')
-def TMT_B(request):
+def TMTB(request):
     return render(request,'TMTB.html')
 
 @login_required(login_url = 'login')

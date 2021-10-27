@@ -1,6 +1,8 @@
 {% extends "main.html" %}
 {% load static %}
 
+{% block content %}
+
 <head> 
   <title> Home </title>
 </head>
@@ -15,7 +17,7 @@
       <div class="card-body">
         <h5 class="card-title">TMT A</h5>
         <p class="card-text">Trail Making Test with numbers only.</p>
-        <a href= {% url 'TMT_A' %} class="btn btn-primary">Continue</a>
+        <a href= {% url 'TMTA' %} class="btn btn-primary">Continue</a>
       </div>
     </div>
     <div class="card text-center">
@@ -25,7 +27,7 @@
       <div class="card-body">
         <h5 class="card-title">TMT B</h5>
         <p class="card-text">Trail Making Test with both numbers and letters.</p>
-        <a href= {% url 'TMT_B' %} class="btn btn-primary">Continue</a>
+        <a href= {% url 'TMTB' %} class="btn btn-primary">Continue</a>
       </div>
     </div>
     <div class="card text-center">
@@ -40,3 +42,5 @@
     </div>
   </div>
 </div>
+
+{% endblock %}

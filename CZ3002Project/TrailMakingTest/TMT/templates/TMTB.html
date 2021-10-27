@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+{% include 'main.html' %}
 {% load static %}
 
+{% block content %}
 <html>
 <head>
     <meta charset="utf-8"></meta>
@@ -10,7 +12,6 @@
 </head>
 
 <body>
-    <div>
         <div id="finish" class="finishbox">
             <div id="dialog" class="dialog">
                 <div class="dialog-header"></div>
@@ -25,7 +26,7 @@
             shuffleButtons();
             completion();
         </script>
-    </div>
 
 </body>
 </html>
+{% endblock %}

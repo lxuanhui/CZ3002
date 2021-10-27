@@ -5,10 +5,10 @@
 }
 
 .card-img-top {
-    width: 50%;
+    width: 15vw;
     height: 15vw;
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: 9vw;
+    margin-top: 10vh;
   }
   
 
@@ -25,4 +25,10 @@
     align-items: center;
 }
 
+.btn-center {
+  position: relative;
+}
 
+.card-body {
+  text-align: center;
+}
