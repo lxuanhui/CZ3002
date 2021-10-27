@@ -7,16 +7,20 @@
 .card-img-top {
     width: 15vw;
     height: 15vw;
-    margin-left: 9vw;
-    margin-top: 10vh;
+    margin: 10vh 1vw 0 1vw;
   }
   
 
 #hello-msg{
-    font-size: 18px;
+    font-size: 28px;
     color: #000000;
     margin-right: 20px;
+    margin-left: 38vw;
   }
+
+.nav-link {
+  font-size: 20px
+}
 
 #cardDeck{
     height: 50vh;
@@ -31,4 +35,21 @@
 
 .card-body {
   text-align: center;
+}
+
+#tmtcard {
+  display: initial;
+  position: relative;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+}
+
+#statimg {
+  margin-left: 17vw;
 }

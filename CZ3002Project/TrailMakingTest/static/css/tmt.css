@@ -1,3 +1,7 @@
+* {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
 .tmtbutton {
     width: 100px;
     height: 100px;
@@ -86,15 +90,15 @@
 
 .tmtA {
     text-align: center;
-    padding: 30vh 20px;
-    font-size: 30px;
+    padding: 35vh;
+    font-size: 100px;
     
 }
 
 .tmtB {
     text-align: center;
-    padding: 30vh 20px;
-    font-size: 30px;
+    padding: 35vh;
+    font-size: 100px;
 }
 
 .box {
