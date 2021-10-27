@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    </meta>
+    <title>Trail Making Test</title>
+    <link rel='stylesheet' href={% static 'css/tmt.css' %}>
+</head>
+
+<body>
+    <div style="display: flex;">
+        <div id="idA" class='box' href={% url 'TMTA' %}>
+            <h3 class="tmtA">TMT-A</h3>
+            <p class="explanation">After starting the TMT-A test, click the buttons in ascending order: <span>1, 2,
+                    3,...</span> as fast as possible.<br><br> The time taken to complete the whole test will be recorded. Any
+                errors will cause the button to turn red</p>
+        </div>
+        <div id="idB" class='box' href={% url 'TMTB' %}>
+            <h3 class="tmtB">TMT-B</h3>
+            <p class="explanation">After starting the TMT-B test, click the   buttons in ascending order:<span> 1, A, 2, B, 3, C, 4, D,...</span>
+                as fast as possible.<br><br> The time taken to complete the whole test will be recorded. Any errors will cause the button to turn red</p>
+        </div>
+    </div>
+    <script>
+
+        var tmtA = document.getElementById("idA");
+        var tmtB = document.getElementById("idB");
+
+        tmtA.addEventListener("click", function(){
+            location.href="/TMTA"
+        })
+
+        tmtB.addEventListener("click", function(){
+            location.href="/TMTB"
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel='stylesheet' href={% static 'css/tmt.css' %}>
+</head>
+<body>
+    <div>
+        <canvas id="chart"> </canvas>
+    </div>
+    <div class="timelabel">
+        <p>Your total time is: <a id="totaltime"></a>ms</p>
+    </div>
+    <div class="trybtndiv">
+        <button class="proceedBtn" onclick="location.href='/choice'">Try again?</button>
+    </div>
+    <script>
+        window.onload = function() {
+            var timeArray = JSON.parse(localStorage.getItem("timeArray"));
+            var timeResults = JSON.parse(localStorage.getItem("timeResults"));
+            var errors = JSON.parse(localStorage.getItem("errors"));
+            var timeTotal = 0;
+
+            const labels = [
+                'Circle 2', 'Circle 3', 'Circle 4',
+                'Circle 5', 'Circle 6', 'Circle 7',
+                'Circle 8', 'Circle 9', 'Circle 10',
+                'Circle 11', 'Circle 12', 'Circle 13',
+                'Circle 14', 'Circle 15',
+            ];
+
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'TMT-A Time to click next circle (ms)',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: timeResults,
+                }]
+            }
+
+            const config = {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            };
+
+            const myChart = new Chart( document.getElementById('chart'), config);
+
+            for (var i=0; i<timeArray.length; i++) {
+                console.log(typeof timeResults[i])
+                if(Number(i)!=null){
+                    timeTotal += Number(timeResults[i]);
+                }
+            }
+            console.log(typeof timeTotal)
+            document.getElementById('totaltime').textContent=timeTotal;
+        }
+    </script>
+</body>

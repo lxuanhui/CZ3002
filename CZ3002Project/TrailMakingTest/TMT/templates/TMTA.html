@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8"></meta>
+    <link rel='stylesheet' href={% static 'css/tmt.css' %}>
+
+    <title>TMT-A</title>
+</head>
+
+<body>
+    
+    <div id="finish" class="finishbox">
+        <div id="dialog" class="dialog">
+            <div class="dialog-header"></div>
+            <p>You completed TMT-A!</p>
+            <button id="proceed" class="proceedBtn">Proceed</button>
+        </div>
+    </div>
+    <script type="text/javascript" charset="utf-8" src={% static 'TMTA.js' %}></script>
+    <script>
+        createButtons();
+        shuffleButtons();
+        completion();
+    </script>
+</body>
+</html>
