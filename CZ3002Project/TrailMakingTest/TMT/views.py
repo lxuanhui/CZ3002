@@ -8,11 +8,9 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, 'home.html')
 
-@login_required(login_url = 'login')
 def TMTA(request):
     return render(request, 'TMTA.html')
 
-@login_required(login_url = 'login')
 def TMTB(request):
     return render(request,'TMTB.html')
 
@@ -20,7 +18,6 @@ def TMTB(request):
 def statistics(request):
     return render(request, 'statistics.html')
 
-@login_required(login_url = 'login')
 def choice(request):
     return render(request, 'choice.html')
 
