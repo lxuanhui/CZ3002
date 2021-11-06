@@ -1,5 +1,5 @@
 var prevButton = 0; //The button that was clicked before: 0 if no button has been clicked yet
-var buttonCount = 15; // How many buttons do you want
+var buttonCount = 24; // How many buttons do you want
 var contentList = [];
 var timeArray = [];
 var timeResults = [];
