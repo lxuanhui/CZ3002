@@ -1,19 +1,16 @@
 {% extends 'main.html' %}
 
+
+
+
+
 {% block content %}
 
-<div>
+    {% if chart %}
+    <center>
+        <img src="data:image/png;base64, {{chart|safe}}">
+    </center>
+    {% endif %}
     
-
-
-
-
-
-
-
-
-
-
-</div>
 
 {% endblock %}

@@ -20,7 +20,8 @@ class Attempts(models.Model):
     numOfErrors = models.IntegerField(null=True)
     errorPerSec = models.FloatField(null=True)
     errorPencentage = models.FloatField(null=True)
-
+    def __str__(self):
+        return self.user.user.username
 
 
 
