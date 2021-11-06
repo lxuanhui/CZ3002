@@ -7,11 +7,11 @@ class Profile(models.Model):
     user = models.OneToOneField(User,null=True,on_delete=models.CASCADE)
     name = models.CharField(max_length=200,null=True)
     email = models.CharField(max_length=200,null=True)
-    age = models.IntegerField(null=True)
+    age = models.IntegerField(null=True, default=40)
     date_created = models.DateTimeField(auto_now_add=True,null=True)
 
     def __str__(self):
-        return self.name
+        return self.user.username
 
 class Attempts(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)

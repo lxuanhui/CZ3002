@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from Authentication.models import Profile
 # Create your views here.
 from .decorators import  UnauthenticatedUser
-from .forms import CreatUserForm
+from .forms import CreatUserForm, ProfileForm
 # Takes a request and returns a response (request handler)
 
 
@@ -39,14 +39,20 @@ def logoutUser(request):
 @UnauthenticatedUser
 def RegisterPage(request):
     
-    form = CreatUserForm()
     if request.method == "POST":
         form = CreatUserForm(request.POST)
-        if form.is_valid():
+        profile_form = ProfileForm(request.POST)
+        if form.is_valid() and profile_form.is_valid():
             user = form.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            # profile.save()
             username = form.cleaned_data.get('username')
-            
-            messages.success(request, 'Account successfully created for ', username)
+            print(username)
+            messages.success(request, f'Account successfully created for {username}')
             return redirect('login')
-    context = {'form':form}
+    else:
+        form = CreatUserForm()
+        profile_form = ProfileForm()
+    context = {'form':form, 'profile_form':profile_form}
     return render(request,'register.html', context)

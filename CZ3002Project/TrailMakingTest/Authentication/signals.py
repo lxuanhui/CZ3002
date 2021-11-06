@@ -27,7 +27,7 @@ def UserProfile(sender,instance,created, **kwargs):
         instance.groups.add(group)
         Profile.objects.create(
             user=instance,
-            name=instance.username)
+            )
         print("profile created successfully")
-
+    instance.profile.save()
 post_save.connect(UserProfile, sender=User)
