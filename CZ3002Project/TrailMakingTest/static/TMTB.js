@@ -83,10 +83,23 @@ function shuffleButtons() {
     }
 }
 
+function timeCheck() {
+    for (var i=0; i<timeArray.length; i++) {
+        if(Number(i)!=null){
+            timeTotal += Number(timeArray[i]);
+        }
+    }
+    console.log(timeTotal)
+    if (Number(timeTotal) > 40000){
+        document.getElementById('dialogtext').textContent = "You completed TMT-B! Your completion time is higher than average.Consider going for a medical check up!"
+    }
+}
+
 function completion() {
     lastBtn.onclick = function () {
         checkButtonB(this);
         document.querySelector('.buttongridB').style.display = 'none';
+        timeCheck()
         finishbox.style.visibility = "visible";
         dialog.style.visibility = "visible";
 

@@ -1,8 +1,9 @@
 var prevButton = 0; //The button that was clicked before: 0 if no button has been clicked yet
-var buttonCount = 24; // How many buttons do you want
+var buttonCount = 15; // How many buttons do you want
 var contentList = [];
 var timeArray = [];
 var timeResults = [];
+var timeTotal = 0;
 var halfcount = 0;
 var errors = 0;
 
@@ -14,7 +15,6 @@ var proceed = document.getElementById("proceed");
 var lastBtn;
 
 // A function that is called when a button is clicked with a (this) sent to it
-// you can read more about (this) on internet
 function checkButtonA(clickedButton) {
     // check if id of current button is one ahead of the prevButton such as 3 - 1 == 2
     if (Number(clickedButton.id) - 1 == prevButton) {
@@ -73,14 +73,29 @@ function shuffleButtons() {
     }
 }
 
+function timeCheck() {
+    for (var i=0; i<timeArray.length; i++) {
+        if(Number(i)!=null){
+            timeTotal += Number(timeArray[i]);
+        }
+    }
+    console.log(timeTotal)
+    if (Number(timeTotal) > 20000){
+        document.getElementById('dialogtext').textContent = "You completed TMT-A! Your completion time is higher than average.Consider going for a medical check up!"
+    }
+}
+
+
 // Dialog menu below
 function completion(){
     lastBtn.onclick = function(){
         checkButtonA(this);
         document.querySelector('.buttongridA').style.display='none';
+        timeCheck()
         finishbox.style.visibility = "visible";
         dialog.style.visibility = "visible";
 
+        
         localStorage.setItem("timeArray", JSON.stringify(timeArray));
         localStorage.setItem("timeResults", JSON.stringify(timeResults));
         localStorage.setItem("errors", JSON.stringify(errors));
