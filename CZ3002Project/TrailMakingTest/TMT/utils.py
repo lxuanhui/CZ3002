@@ -18,7 +18,7 @@ def get_graph():
 def get_plot(x, y):
     plt.switch_backend('AGG')
     plt.figure(figsize=(10,5))
-    plt.title('Time of Attempts for TMT A')
+    plt.title('Time of Attempts')
     plt.plot(x,y)
     print("Running getPlot")
     plt.xlabel('Attempt')
